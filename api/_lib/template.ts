@@ -18,7 +18,7 @@ const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString(
   "base64"
 );
 
-function getCss(theme: string, fontSize: string, keyWord = "") {
+function getCss(theme: string, fontSize: string) {
   let background = "#F7FAFC";
   let foreground = "black";
   let radial = "lightgray";
@@ -115,15 +115,14 @@ function getCss(theme: string, fontSize: string, keyWord = "") {
 }
 
 export function getHtml(parsedReq: ParsedRequest) {
-  const { text, theme, md, fontSize, images, widths, heights, keyWord } =
-    parsedReq;
+  const { text, theme, md, fontSize, images, widths, heights } = parsedReq;
   return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
     <title>Generated Image</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        ${getCss(theme, fontSize, keyWord)}
+        ${getCss(theme, fontSize)}
     </style>
     <body>
         <div>

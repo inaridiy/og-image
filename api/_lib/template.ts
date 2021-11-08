@@ -22,13 +22,13 @@ const lightNovel = readFileSync(
   `${__dirname}/../_fonts/LightNovelPOPv2.otf`
 ).toString("base64");
 
-function getCss(theme: string, fontSize: string) {
-  let background = "#EBF8FF";
+function getCss(theme: string, fontSize: string, keyWord?: string) {
+  let background = keyWord ? "#" + keyWord : "#EBF8FF";
   let foreground = "black";
   let radial = "lightgray";
 
   if (theme === "dark") {
-    background = "#1A202C";
+    background = keyWord ? "#" + keyWord : "#1A202C";
     foreground = "white";
     radial = "dimgray";
   }
@@ -125,14 +125,15 @@ function getCss(theme: string, fontSize: string) {
 }
 
 export function getHtml(parsedReq: ParsedRequest) {
-  const { text, theme, md, fontSize, images, widths, heights } = parsedReq;
+  const { text, theme, md, fontSize, images, widths, heights, keyWord } =
+    parsedReq;
   return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
     <title>Generated Image</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        ${getCss(theme, fontSize)}
+        ${getCss(theme, fontSize, keyWord)}
     </style>
     <body>
         <div>

@@ -2,7 +2,7 @@ import { readFileSync } from "fs";
 import marked from "marked";
 import { sanitizeHtml } from "./sanitizer";
 import { ParsedRequest } from "./types";
-import toMaterialStyle from "material-color-hash";
+// import toMaterialStyle from "material-color-hash";
 
 const twemoji = require("twemoji");
 const twOptions = { folder: "svg", ext: ".svg" };

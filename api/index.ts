@@ -23,6 +23,10 @@ export default async function handler(
     res.statusCode = 200;
     res.setHeader("Content-Type", `image/${fileType}`);
     res.setHeader(
+      `Content-Disposition`,
+      `attachment; filename=og-image.${fileType}`
+    );
+    res.setHeader(
       "Cache-Control",
       `public, immutable, no-transform, s-maxage=604800, max-age=604800`
     );

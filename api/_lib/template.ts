@@ -2,6 +2,8 @@ import { readFileSync } from "fs";
 import marked from "marked";
 import { sanitizeHtml } from "./sanitizer";
 import { ParsedRequest } from "./types";
+import toMaterialStyle from "material-color-hash";
+
 const twemoji = require("twemoji");
 const twOptions = { folder: "svg", ext: ".svg" };
 const emojify = (text: string) => twemoji.parse(text, twOptions);
@@ -16,13 +18,13 @@ const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString(
   "base64"
 );
 
-function getCss(theme: string, fontSize: string) {
-  let background = "white";
+function getCss(theme: string, fontSize: string, keyWord = "") {
+  let background = toMaterialStyle(keyWord, 200).backgroundColor;
   let foreground = "black";
   let radial = "lightgray";
 
   if (theme === "dark") {
-    background = "black";
+    background = toMaterialStyle(keyWord, 800).backgroundColor;
     foreground = "white";
     radial = "dimgray";
   }
@@ -110,14 +112,15 @@ function getCss(theme: string, fontSize: string) {
 }
 
 export function getHtml(parsedReq: ParsedRequest) {
-  const { text, theme, md, fontSize, images, widths, heights } = parsedReq;
+  const { text, theme, md, fontSize, images, widths, heights, keyWord } =
+    parsedReq;
   return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
     <title>Generated Image</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        ${getCss(theme, fontSize)}
+        ${getCss(theme, fontSize, keyWord)}
     </style>
     <body>
         <div>

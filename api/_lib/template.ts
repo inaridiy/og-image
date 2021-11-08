@@ -21,12 +21,10 @@ const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString(
 function getCss(theme: string, fontSize: string, keyWord = "") {
   let background = toMaterialStyle(keyWord, 100).backgroundColor;
   let foreground = "black";
-  let radial = "lightgray";
 
   if (theme === "dark") {
     background = toMaterialStyle(keyWord, 800).backgroundColor;
     foreground = "white";
-    radial = "dimgray";
   }
   return `
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap');

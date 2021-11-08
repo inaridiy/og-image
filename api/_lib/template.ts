@@ -18,8 +18,12 @@ const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString(
   "base64"
 );
 
+const lightNovel = readFileSync(
+  `${__dirname}/../_fonts/LightNovelPOPv2.otf`
+).toString("base64");
+
 function getCss(theme: string, fontSize: string) {
-  let background = "#F7FAFC";
+  let background = "#E6FFFA";
   let foreground = "black";
   let radial = "lightgray";
 
@@ -29,7 +33,6 @@ function getCss(theme: string, fontSize: string) {
     radial = "dimgray";
   }
   return `
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap');
     @font-face {
         font-family: 'Inter';
         font-style:  normal;
@@ -51,10 +54,18 @@ function getCss(theme: string, fontSize: string) {
         src: url(data:font/woff2;charset=utf-8;base64,${mono})  format("woff2");
       }
 
+    @font-face {
+        font-family: 'LightNovelPOP';
+        font-style: normal;
+        font-weight: normal;
+        src: url(data:font/woff2;charset=utf-8;base64,${lightNovel})  format("woff2");
+    }
+
     body {
         background: ${background};
         background-image: radial-gradient(circle at 25px 25px, ${radial} 2%, transparent 0%), radial-gradient(circle at 75px 75px, ${radial} 2%, transparent 0%);
         background-size: 100px 100px;
+        padding="5px"
         height: 100vh;
         display: flex;
         text-align: center;
@@ -106,7 +117,7 @@ function getCss(theme: string, fontSize: string) {
     }
     
     .heading {
-        font-family: 'Noto Sans JP', sans-serif;
+      font-family: 'Inter','LightNovelPOP', sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
         color: ${foreground};

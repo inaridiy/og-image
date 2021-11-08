@@ -65,7 +65,6 @@ function getCss(theme: string, fontSize: string) {
         background: ${background};
         background-image: radial-gradient(circle at 25px 25px, ${radial} 2%, transparent 0%), radial-gradient(circle at 75px 75px, ${radial} 2%, transparent 0%);
         background-size: 100px 100px;
-        padding="5px"
         height: 100vh;
         display: flex;
         text-align: center;

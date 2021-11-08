@@ -77,6 +77,7 @@ function getCss(theme: string, fontSize: string, keyWord = "") {
         display: flex;
         max-width: 100%;
         flex-wrap: wrap;
+        row-gap: 10px;
         align-items: center;
         align-content: center;
         justify-content: center;

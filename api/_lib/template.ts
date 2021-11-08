@@ -116,7 +116,7 @@ function getCss(theme: string, fontSize: string) {
     }
     
     .heading {
-      font-family: 'Inter','LightNovelPOP', sans-serif;
+      font-family:'LightNovelPOP','Inter', sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
         color: ${foreground};

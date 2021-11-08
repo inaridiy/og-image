@@ -6,7 +6,7 @@ export interface ParsedRequest {
   fileType: FileType;
   text: string;
   theme: Theme;
-  keyWord: keyWord;
+  keyWord?: keyWord;
   md: boolean;
   fontSize: string;
   images: string[];

@@ -19,7 +19,7 @@ const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString(
 );
 
 function getCss(theme: string, fontSize: string, keyWord = "") {
-  let background = toMaterialStyle(keyWord, 200).backgroundColor;
+  let background = toMaterialStyle(keyWord, 100).backgroundColor;
   let foreground = "black";
   let radial = "lightgray";
 
